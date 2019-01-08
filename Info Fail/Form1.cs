@@ -12,6 +12,8 @@ namespace Info_Fail
 {
     public partial class Form1 : Form
     {
+        util myUtiliti = new util();
+
         public Form1()
         {
             InitializeComponent();
@@ -32,10 +34,11 @@ namespace Info_Fail
             if(ofd.ShowDialog() == DialogResult.OK)
             {
                 // в переменную текст бокса записываем путь к файлу
-                textBox1.Text = ofd.FileName;
 
+               // textBox1.Text = ofd.FileName;
+                myUtiliti.ZapisTextFail(textBox1.Text = ofd.FileName);
             }
-
+           // myUtiliti.ZapisTextFail();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
