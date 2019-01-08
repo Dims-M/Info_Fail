@@ -27,7 +27,7 @@ namespace Info_Fail
                 // Создаем поток для работы с текст файлом. И указываем путь, дозапись в файл(если он создаан) и кодировку
                 using (StreamWriter sw = new StreamWriter(readPath, true, System.Text.Encoding.Default))
                 {
-                    sw.WriteLine("Дата: \t\n"+ now.ToString());
+                    sw.WriteLine("\t\n Дата: \t\n" + now.ToString());
                     sw.Write(stroka);
                 }
             }
@@ -38,5 +38,39 @@ namespace Info_Fail
             }
         }
 
+        public void SozdanieKataloga(string MyPath)
+        {
+
+         //   string path = @"tempFile";
+            string path = MyPath;
+
+            string subpath = "Icon";
+
+            // обьект для работы с каталогами.
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+
+            // проверка на существование текущего каталога
+            if (!dirInfo.Exists)
+            {
+                try
+                {
+
+                    dirInfo.Create();
+
+                    //создание подкатолога
+                    dirInfo.CreateSubdirectory(subpath);
+
+                }
+
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            
+        }
+
     }
-}
+
+ }
